@@ -26,12 +26,6 @@ export class DiscoverPage implements OnInit, OnDestroy {
     // Listen for the toggle check/uncheck to toggle the dark class on the <body>
     toggle.addEventListener('ionChange', (ev) => {
       this.bool = !this.bool;
-      if (this.bool) {
-        // Android fix for enabling dark mode, see native implementation in MainActivity.java
-        if (window.navigator.userAgent.includes('AndroidDarkMode')) {
-          this.text = 'AndroidDarkMode';
-        }
-      }
       document.body.classList.toggle('dark', this.bool);
     });
 
