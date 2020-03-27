@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="m1"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Offers</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button routerLink="/places/tabs/offers/new">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="ion-text-center" *ngIf="offers.length <= 0">
+          <p>No places found! Please create one!</p>
+          <ion-button color="primary" routerLink="/places/tabs/offers/new">Offer New Place</ion-button>
+        </div>
+        <ion-list *ngIf="offers.length > 0">
+          <ion-item-sliding *ngFor="let place of offers" #slidingItem>
+           <app-offer-item [offer]="place"></app-offer-item>
+            <ion-item-options>
+              <ion-item-option color="secondary" (click)="onEdit(place.id, slidingItem)">
+                <ion-icon name="create" slot="top"></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

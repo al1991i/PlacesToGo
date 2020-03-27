@@ -1,0 +1,8 @@
+{
+  "appId": "com.ali.recipeapp",
+  "appName": "RecipeBook",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}
